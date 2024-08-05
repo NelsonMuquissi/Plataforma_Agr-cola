@@ -1,0 +1,566 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    /*transition: all .2s linear;*/
+
+}
+
+body {
+    background-color: #eee;
+}
+
+
+input {
+    display: none;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.btn a {
+    height: 35px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding-left: 30px;
+    border-radius: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+header {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url("imagem/agricultura-familiar-contag.jpeg") no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: whitesmoke;
+}
+
+.logo img {
+    height: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 30px;
+    background-color: transparent;
+    box-shadow: 2px 2px 20px rgba(90, 118, 253, 0.13);
+    z-index: 1;
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
+
+nav ul {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+}
+
+nav ul li a {
+    position: relative;
+    height: 34px;
+    line-height: 40px;
+    margin: 14px;
+    padding: 0px 20px;
+    display: flex;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 90%;
+    height: 2px;
+    background: #fff;
+    transform-origin: left;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+ul li a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/*Divice Mobile*/
+@media(max-width:1100px) {
+    .content {
+        position: absolute;
+        display: flex;
+        display: block;
+        pad: 100px;
+        margin-bottom: 1000px;
+    }
+
+    .btn a {
+        background-color: transparent;
+    }
+
+    .navbar {
+        display: flex;
+    }
+
+    nav {
+        justify-content: space-between;
+        height: 50px;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0px;
+        background-color: #333333;
+        width: 100%;
+        color: #fff;
+        margin-bottom: 20px;
+        border-bottom-right-radius: 30%;
+    }
+
+    nav .menu li a {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 10px;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+        padding: 45px 45px;
+        border: 1px solid rgba(38, 38, 38, 0.03);
+    }
+
+    nav .menu-icon {
+        cursor: pointer;
+        float: right;
+        padding: 28px 20px;
+        position: relative;
+        user-select: none;
+        color: #fff;
+    }
+
+    nav .menu-icon .nav-icon {
+        background-color: #333333;
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background 0.2s ease-out;
+        width: 18px;
+    }
+
+    nav .menu-icon .nav-icon::before,
+    nav .menu-icon .nav-icon::after {
+        display: flex;
+        background: #333333;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all ease-out 0.2s;
+        width: 100%;
+    }
+
+    nav .menu-icon .nav-icon::before {
+        top: 5px;
+    }
+
+    nav .menu-icon .nav-icon::after {
+        top: -5px;
+    }
+
+    nav .menu-btn:checked~.menu-icon .nav-icon {
+        background: transparent;
+    }
+
+    nav .menu-btn:checked~.menu-icon .nav-icon::before {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    nav .menu-btn:checked~.menu-icon .nav-icon::after {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    nav .menu-btn {
+        display: none;
+    }
+
+    nav .menu-btn:checked~.menu {
+        display: block;
+    }
+
+    .content-col h2{
+        display: none;
+    }
+    .content-col p{
+       margin-left: 50%;
+    }
+    .content-col p a{
+        display: flex;
+    }
+    .content-col a{
+        display: flex;
+    }
+    .content-col {
+        display: flex;
+        position: absolute;
+        float: right;
+    }
+
+}
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: whitesmoke;
+}
+
+button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #006359;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+span {
+    background: #003b35;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transform: .5s;
+}
+
+button:hover span {
+    width: 100%;
+}
+
+button:hover {
+    border: none;
+}
+
+.line {
+    columns: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.container .title {
+    font-size: 3.5rem;
+    color: #444;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.container .products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 2fr));
+    gap: 2rem;
+}
+
+.container .products-container .product {
+    text-align: center;
+    padding: 3rem 3rem;
+    background: #fff;
+    box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1);
+    outline: 0.1rem solid #ccc;
+    outline-offset: -1.5rem;
+    cursor: pointer;
+}
+
+.container .products-container .product:hover {
+    outline: 0.2rem solid #222;
+    outline-offset: 0;
+}
+
+.container .products-container .product img {
+    height: 15rem;
+}
+
+.container .products-container .product img:hover {
+    transform: scale(.9);
+}
+
+.container .products-container .product h3 {
+    padding: .5rem 0;
+    font-size: 2rem;
+    color: #444;
+}
+
+.container .products-container .product:hover h3 {
+    color: #27Ae60;
+}
+
+.container .products-container .product .price {
+    font-size: 1.5rem;
+    color: #444;
+}
+
+.products-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, .8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.products-preview .preview {
+    display: none;
+    padding: 2rem;
+    text-align: center;
+    background: #fff;
+    position: relative;
+    margin: 2rem;
+    width: 40rem;
+}
+
+.products-preview .preview.active {
+    display: inline-block;
+}
+
+.products-preview .preview img {
+    height: 20rem;
+}
+
+.products-preview .preview .fa-times {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    color: #444;
+    font-size: 3rem;
+}
+
+.products-preview .preview .fa-times:hover {
+    transform: rotate(90deg);
+}
+
+.products-preview .preview h3 {
+    color: #444;
+    padding: 1rem 0;
+    font-size: 2.5rem;
+}
+
+.products-preview .preview .stars {
+    padding: 0rem 0;
+}
+
+.products-preview .preview .stars i {
+    color: #27ae60;
+}
+
+.products-preview .preview .stars span {
+    color: #999;
+}
+
+.products-preview .preview p {
+    line-height: 1.5;
+    padding: 0rem 0;
+    font-size: 1rem;
+    color: #777;
+}
+
+.products-preview .preview .buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.products-preview .preview .buttons a {
+    flex: 1 1 16rem;
+    padding: 1rem;
+    font-size: 1.8rem;
+    color: #444;
+    border: .1rem solid #444;
+}
+
+.products-preview .preview .buttons a.cart {
+    background: #444;
+    color: #fff;
+}
+
+.products-preview .preview .buttons a.cart:hover {
+    background: #111;
+}
+
+.products-preview .preview .buttons a.buy:hover {
+    background: #444;
+    color: #fff;
+}
+
+/*.tours{
+float: right;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 60%;
+width: 40%;
+flex-wrap: wrap;
+}*/
+.content-col {
+    margin-left: 50%;
+    margin-top: 80px;
+    position: absolute;
+}
+
+.image-col {
+    width: 50%;
+}
+
+.image-galery img {
+    width: 300px;
+    margin: 10px;
+    height: 190px;
+}
+
+.content-col h2 {
+    font-size: 6vmin;
+    color: #484872;
+}
+
+.content-col .line {
+    margin-left: -3px;
+}
+.content-col .btn a{
+background-color: #003b35;
+width: 100px;
+}
+.content-col p a:hover{
+    background-color: #003b35;
+    color: #fff;
+    margin-left: 5px;
+    padding: 5px 8px;
+    width: 100px;
+    border-radius: 8px;
+}
+
+.image-galery img:hover{
+    transform: scale(.9);
+}
+/*Elementos do footer*/
+.footer{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -sm-flex;
+    display: -o-flex;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 50px;
+    color: #fff;
+    background-color: #262626;
+}
+
+.footer > *{
+    flex: 1 100%;
+}
+.l-footer{
+    margin-right: 1.25rem;
+    margin-bottom: 2em;
+}
+.footer h2{
+    font-weight: 900;
+    font-size: 16px;
+}
+.footer ul{
+    list-style: none;
+    padding-left: 0;
+}
+.footer li{
+    line-height: 2em;
+}
+.footer a{
+    text-decoration: none;
+    color: #999;
+}
+.r-footer{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -sm-flex;
+    display: -o-flex;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.r-footer > *{
+    flex: 1 50%;
+    margin-right: 1.25em;
+}
+.box1 a{
+    text-decoration: none;
+}
+.h-box1{
+    column-count: 2;
+    column-gap: 1.25em;
+}
+.b-footer{
+    text-align: center;
+    color: #999;
+    padding-top: 50px;
+}
+.l-footer p{
+    padding-right: 20%;
+    color: #999;
+}
+@media screen and (min-width:600px) {
+    .r-footer > *{
+        flex: 1;
+    }
+    .features{
+        flex-grow: 2;
+    }
+    .l-footer{
+        flex: 1 0px;
+    }
+    .r-footer{
+        flex: 2 0px;
+    }
+    
+}
